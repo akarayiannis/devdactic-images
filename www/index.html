@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <!--<meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">-->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' * data: gap: filesystem: https://ssl.gstatic.com https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ 'unsafe-inline' 
+        'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+  <!--<meta http-equiv="Content-Security-Policy" content="default-src *; img-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
+  <title></title>
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <script src="lib/imgcache.js/js/imgcache.js"></script>
+  <script src="lib/angular-imgcache/angular-imgcache.js"></script>
+
+  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+  <script src="cordova.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/services.js"></script>
+</head>
+
+<body ng-app="starter">
+  <ion-content class="has-header padding" ng-controller="ImageController">
+    <button class="button button-full button-energized" ng-click="addMedia()">
+      Add image
+    </button>
+    <br><br>
+    <ion-scroll direction="x" style="height:200px; min-height: 200px; overflow: scroll; white-space: nowrap;">
+      <!--<img ng-repeat="image in images" ng-src="{{urlForImage(image)}}" style="height:200px; padding: 5px 5px 5px 5px;" />-->
+      <img ng-repeat="image in images" img-cache ic-src="{{urlForImage(image)}}" style="height:200px; padding: 5px 5px 5px 5px;" />
+    </ion-scroll>
+    </ion-conten>
+</body>
+
+</html>
